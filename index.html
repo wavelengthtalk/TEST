@@ -507,8 +507,8 @@
       <div class="price-card reveal">
         <div class="price-duration">⏱ 30 Minutes</div>
         <div class="price-title">Clarity Session</div>
-        <div class="price-amount"><span class="price-dollar">£</span><span class="price-num">500</span></div>
-        <div class="price-per">one-time · USD</div>
+        <div class="price-amount"><span class="price-dollar">£</span><span class="price-num">15</span></div>
+        <div class="price-per">one-time · GBP</div>
         <ul class="price-features">
           <li><div class="pf-dot">✓</div> 30 min voice/video call</li>
           <li><div class="pf-dot">✓</div> 100% judgment-free</li>
@@ -516,14 +516,14 @@
           <li><div class="pf-dot">✓</div> Email confirmation</li>
           <li><div class="pf-dot">✓</div> Google Calendar booking</li>
         </ul>
-        <button class="book-btn" onclick="openModal('30min', 500)">Book This Session →</button>
+        <button class="book-btn" onclick="openModal('30min', 15)">Book This Session →</button>
       </div>
       <div class="price-card featured reveal reveal-delay-1">
         <div class="popular-badge">Most Popular</div>
         <div class="price-duration" style="color: var(--orange);">⏱ 60 Minutes</div>
         <div class="price-title">Deep Dive Session</div>
-        <div class="price-amount"><span class="price-dollar">£</span><span class="price-num">1</span></div>
-        <div class="price-per">one-time · USD</div>
+        <div class="price-amount"><span class="price-dollar">£</span><span class="price-num">50</span></div>
+        <div class="price-per">one-time · GBP</div>
         <ul class="price-features">
           <li><div class="pf-dot">✓</div> Full 1-hour conversation</li>
           <li><div class="pf-dot">✓</div> Go deep on any topic</li>
@@ -531,7 +531,7 @@
           <li><div class="pf-dot">✓</div> Priority booking slot</li>
           <li><div class="pf-dot">✓</div> Email confirmation</li>
         </ul>
-        <button class="book-btn" onclick="openModal('60min', 1000)">Book This Session →</button>
+        <button class="book-btn" onclick="openModal('60min', 50)">Book This Session →</button>
       </div>
     </div>
     <p style="margin-top:1.5rem; font-size:0.85rem; color: var(--text-muted);">🔒 Payment is processed manually — secure and straightforward. No subscription. No hidden fees.</p>
@@ -569,7 +569,7 @@
     <div class="faq-list" style="margin-top:2rem;">
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this therapy or counseling?<div class="faq-icon">+</div></button><div class="faq-a">Absolutely not. This is a friendly, casual human conversation. I'm not a therapist or counselor. Think of it as a warm, supportive chat with someone who's fully present and genuinely cares about how you're feeling. If you need professional mental health support, I'd always encourage you to seek that too.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What can we talk about?<div class="faq-icon">+</div></button><div class="faq-a">Literally anything — work stress, relationships, loneliness, a big decision, something funny that happened, a dream you're chasing, or just how your week went. There are no rules and no wrong topics. This is your time.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does payment work?<div class="faq-icon">+</div></button><div class="faq-a">Payment is done manually — I accept PayPal and Wise. After you click Book, you'll see my payment details. Complete the payment, note your reference number, and then book your slot on the calendar. Once I verify your payment, I'll send you a confirmation email with the meeting link.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does payment work?<div class="faq-icon">+</div></button><div class="faq-a">Payment is done manually via <strong>Wise</strong> — the easiest way for UK and US clients to send money internationally. After clicking Book, you'll see the Wise payment details. Send the payment, note your transaction reference number, then fill in the booking form. Once I verify your payment, you'll receive a confirmation email with the Google Calendar booking link.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I schedule my session?<div class="faq-icon">+</div></button><div class="faq-a">After payment, you'll get access to my Google Calendar booking link where you can see my real-time availability and pick a slot that works perfectly for your timezone. It's quick and easy.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this confidential?<div class="faq-icon">+</div></button><div class="faq-a">Completely. What you share in our conversation stays between us. I take your privacy very seriously. You can speak freely, openly, and without any worry.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if I need to reschedule?<div class="faq-icon">+</div></button><div class="faq-a">Life happens! Just send me an email at least 6 hours before your session and we'll reschedule you to a time that works. I'm flexible and understanding.</div></div>
@@ -619,27 +619,25 @@
       <p class="modal-sub">To secure your slot, please send the payment using one of the options below. Keep your payment reference — you'll need it in the next step.</p>
       <div class="payment-box">
         <div id="modal-session-label" style="font-size:0.85rem; color: var(--text-muted); margin-bottom:4px;">30-minute Clarity Session</div>
-        <div class="payment-amount" id="modal-price">$15</div>
-        <div class="payment-label">One-time payment · USD</div>
+        <div class="payment-amount" id="modal-price">£15</div>
+        <div class="payment-label">One-time payment · GBP</div>
       </div>
       <div class="pay-methods">
-        <div class="pay-method selected" onclick="selectPayment(this)">
-          <div class="pay-icon">🅿️</div>
-          <div class="pay-info">
-            <div class="pay-name">PayPal</div>
-            <div class="pay-detail">Send to: <a class="pay-link" href="https://paypal.me/YOURPAYPALLINK" target="_blank">paypal.me/YourName</a><span style="color:rgba(255,255,255,0.35)"> · Include your name in the note</span></div>
-          </div>
-        </div>
-        <div class="pay-method" onclick="selectPayment(this)">
+        <div class="pay-method selected">
           <div class="pay-icon">🏦</div>
           <div class="pay-info">
-            <div class="pay-name">Wise (TransferWise)</div>
-            <div class="pay-detail">Email: <span style="color:var(--teal)">your@email.com</span> · Currency: USD</div>
+            <div class="pay-name">Wise (International Bank Transfer)</div>
+            <div class="pay-detail">Send to: <span style="color:var(--teal)">your@email.com</span> · Currency: GBP</div>
+            <div class="pay-detail" style="margin-top:4px; color:rgba(255,255,255,0.5);">✓ Works from UK, US &amp; worldwide · Low fees · Fast transfer</div>
           </div>
         </div>
       </div>
-      <div style="background:rgba(255,107,53,0.08); border:1px solid rgba(255,107,53,0.2); border-radius:12px; padding:0.9rem; font-size:0.82rem; color:rgba(255,255,255,0.7); line-height:1.6; margin-bottom:1.2rem;">
-        ⚡ After sending payment, please note your <strong style="color:#FF8C60">transaction ID / reference number</strong>. You'll need it to complete booking on the next screen.
+      <div style="background:rgba(0,201,177,0.08); border:1px solid rgba(0,201,177,0.2); border-radius:12px; padding:0.9rem; font-size:0.82rem; color:rgba(255,255,255,0.7); line-height:1.7; margin-bottom:1.2rem;">
+        <strong style="color:var(--teal);">How to pay via Wise:</strong><br>
+        1. Go to <a href="https://wise.com" target="_blank" style="color:var(--teal);">wise.com</a> or open the Wise app<br>
+        2. Send <strong style="color:white;" id="wise-amount">£15</strong> to <strong style="color:white;">your@email.com</strong><br>
+        3. Add your name in the reference/note<br>
+        4. Save your <strong style="color:#FF8C60;">transaction reference number</strong> for the next step
       </div>
       <button class="modal-btn" onclick="goStep(2)">I've Sent the Payment → Next Step</button>
     </div>
@@ -650,7 +648,7 @@
       <p class="modal-sub">Fill in your details below. Once submitted, I'll verify your payment and send you a calendar confirmation within a few hours.</p>
       <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" id="fname" placeholder="e.g. Sarah" /></div>
       <div class="form-group"><label class="form-label">Your Email</label><input class="form-input" type="email" id="femail" placeholder="you@email.com" /></div>
-      <div class="form-group"><label class="form-label">Payment Reference / Transaction ID</label><input class="form-input" type="text" id="fpayref" placeholder="e.g. PayPal ref #1234567" /></div>
+      <div class="form-group"><label class="form-label">Payment Reference / Transaction ID</label><input class="form-input" type="text" id="fpayref" placeholder="e.g. Wise ref #1234567" /></div>
       <div class="form-group"><label class="form-label">Preferred Time Zone</label><input class="form-input" type="text" id="ftimezone" placeholder="e.g. EST, IST, GMT+1" /></div>
       <div class="form-group"><label class="form-label">Anything you'd like me to know? (optional)</label><textarea class="form-input" id="fnote" rows="2" placeholder="How you're feeling, topic you'd like to talk about, etc."></textarea></div>
       <button class="modal-btn orange-btn" onclick="submitForm()">Submit &amp; Book My Slot →</button>
@@ -686,7 +684,8 @@
     currentPrice = price;
     const label = session === '30min' ? '30-minute Clarity Session' : '60-minute Deep Dive Session';
     document.getElementById('modal-session-label').textContent = label;
-    document.getElementById('modal-price').textContent = '$' + price;
+    document.getElementById('modal-price').textContent = '£' + price;
+    document.getElementById('wise-amount').textContent = '£' + price;
     goStep(1);
     document.getElementById('bookingModal').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -723,7 +722,7 @@
       alert('Please fill in your name, email, and payment reference to continue.');
       return;
     }
-    const session = currentSession === '30min' ? '30-Minute Clarity Session ($15)' : '60-Minute Deep Dive ($25)';
+    const session = currentSession === '30min' ? '30-Minute Clarity Session (£15)' : '60-Minute Deep Dive (£50)';
     const timezone = document.getElementById('ftimezone').value.trim() || 'Not specified';
     const note = document.getElementById('fnote').value.trim() || 'None';
     const subject = encodeURIComponent('New Wavelength Booking — ' + name);
