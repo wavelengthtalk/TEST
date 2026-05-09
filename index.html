@@ -1,1 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wavelength – You Deserve to Be Heard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #00C9B1;
+    --teal-dark: #00A896;
+    --orange: #FF6B35;
+    --orange-light: #FF8C60;
+    --navy: #0D1B3E;
+    --navy-mid: #162447;
+    --navy-light: #1F3461;
+    --white: #FFFFFF;
+    --off-white: #F0F4FF;
+    --text-muted: rgba(255,255,255,0.65);
+    --glow-teal: 0 0 60px rgba(0,201,177,0.3);
+    --glow-orange: 0 0 60px rgba(255,107,53,0.3);
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(13,27,62,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-logo span { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--white); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    color: var(--navy);
+    border: none; padding: 0.55rem 1.4rem;
+    border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: var(--glow-teal); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(0,201,177,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 60%, rgba(255,107,53,0.1) 0%, transparent 60%),
+                var(--navy);
+  }
+  .wave-container {
+    position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 180px; overflow: hidden;
+  }
+  .wave {
+    position: absolute; bottom: 0; left: -50%;
+    width: 200%; height: 180px;
+    border-radius: 50%;
+  }
+  .wave1 { background: rgba(0,201,177,0.08); animation: waveAnim 7s linear infinite; }
+  .wave2 { background: rgba(0,168,150,0.06); animation: waveAnim 10s linear infinite reverse; margin-bottom: 15px; }
+  .wave3 { background: rgba(255,107,53,0.05); animation: waveAnim 13s linear infinite; margin-bottom: 30px; }
+  @keyframes waveAnim {
+    0% { transform: translateX(0) translateY(0) scaleY(1); }
+    50% { transform: translateX(-25%) translateY(-10px) scaleY(0.95); }
+    100% { transform: translateX(-50%) translateY(0) scaleY(1); }
+  }
+  .bubbles-wrapper { position: absolute; inset: 0; pointer-events: none; }
+  .bubble {
+    position: absolute;
+    border-radius: 50px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 500;
+    padding: 0.5rem 1rem;
+    animation: floatBubble 8s ease-in-out infinite;
+    opacity: 0.75;
+  }
+  .bubble-teal { background: rgba(0,201,177,0.18); border: 1px solid rgba(0,201,177,0.35); color: var(--teal); }
+  .bubble-orange { background: rgba(255,107,53,0.18); border: 1px solid rgba(255,107,53,0.35); color: var(--orange-light); }
+  .b1 { top: 22%; left: 8%; animation-delay: 0s; }
+  .b2 { top: 35%; right: 8%; animation-delay: 2s; }
+  .b3 { top: 60%; left: 12%; animation-delay: 4s; font-size: 0.7rem; }
+  .b4 { top: 55%; right: 14%; animation-delay: 1s; }
+  .b5 { top: 15%; right: 20%; animation-delay: 3s; font-size: 0.7rem; }
+  @keyframes floatBubble {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-16px); }
+  }
+  .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.5; animation: orbPulse 6s ease-in-out infinite; }
+  .orb1 { width: 350px; height: 350px; background: var(--teal); top: -80px; left: -100px; }
+  .orb2 { width: 280px; height: 280px; background: var(--orange); bottom: 10%; right: -80px; animation-delay: 3s; }
+  .orb3 { width: 200px; height: 200px; background: #3A86FF; top: 40%; left: 40%; animation-delay: 1.5s; }
+  @keyframes orbPulse {
+    0%, 100% { opacity: 0.35; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(1.08); }
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 820px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,201,177,0.15);
+    border: 1px solid rgba(0,201,177,0.3);
+    border-radius: 50px; padding: 0.4rem 1rem;
+    font-size: 0.82rem; color: var(--teal); font-weight: 500;
+    margin-bottom: 1.5rem;
+    animation: fadeSlideDown 0.8s ease both;
+  }
+  .pulse-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--teal);
+    animation: pulseAnim 2s ease infinite;
+  }
+  @keyframes pulseAnim {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,201,177,0.6); }
+    50% { box-shadow: 0 0 0 6px rgba(0,201,177,0); }
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    line-height: 1.12;
+    margin-bottom: 1.5rem;
+    animation: fadeSlideDown 0.8s 0.2s ease both;
+  }
+  h1 em { font-style: italic; color: var(--teal); }
+  .orange-word { color: var(--orange); }
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.22rem);
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    animation: fadeSlideDown 0.8s 0.4s ease both;
+  }
+  .hero-buttons {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    animation: fadeSlideDown 0.8s 0.6s ease both;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    color: var(--navy);
+    border: none; padding: 0.85rem 2rem;
+    border-radius: 50px; font-weight: 700; font-size: 1rem;
+    cursor: pointer; transition: all 0.3s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,201,177,0.4); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    padding: 0.85rem 2rem;
+    border-radius: 50px; font-weight: 500; font-size: 1rem;
+    cursor: pointer; transition: all 0.3s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.5); }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 3rem;
+    margin-top: 3.5rem;
+    animation: fadeSlideDown 0.8s 0.8s ease both;
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--teal); }
+  .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+  @keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 2rem; position: relative; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    background: rgba(0,201,177,0.12);
+    border: 1px solid rgba(0,201,177,0.25);
+    color: var(--teal); border-radius: 50px;
+    padding: 0.3rem 1rem; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .section-tag.orange { background: rgba(255,107,53,0.12); border-color: rgba(255,107,53,0.25); color: var(--orange-light); }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 1rem; }
+  h2 em { font-style: italic; color: var(--teal); }
+  .section-sub { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-bottom: 3rem; }
+
+  /* ─── WHAT IS THIS ─── */
+  #what { background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%); }
+  .what-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .what-visual { position: relative; height: 420px; }
+  .phone-mockup {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 240px;
+    background: linear-gradient(145deg, var(--navy-light), var(--navy-mid));
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 36px;
+    padding: 1.5rem 1.2rem;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .phone-header { display: flex; align-items: center; gap: 8px; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 1rem; }
+  .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; color: var(--navy); }
+  .phone-name { font-size: 0.8rem; font-weight: 600; }
+  .online-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; margin-left: auto; }
+  .chat-msg { margin-bottom: 0.7rem; animation: chatAppear 0.5s ease both; }
+  .msg-them { display: flex; gap: 6px; align-items: flex-end; }
+  .msg-me { display: flex; justify-content: flex-end; }
+  .msg-bubble { padding: 0.5rem 0.8rem; border-radius: 14px; font-size: 0.72rem; line-height: 1.5; max-width: 170px; }
+  .them-bubble { background: rgba(0,201,177,0.15); border: 1px solid rgba(0,201,177,0.25); color: rgba(255,255,255,0.9); border-bottom-left-radius: 4px; }
+  .me-bubble { background: rgba(255,107,53,0.2); border: 1px solid rgba(255,107,53,0.3); color: rgba(255,255,255,0.9); border-bottom-right-radius: 4px; }
+  .mini-avatar { width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), #008fa0); }
+  @keyframes chatAppear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .chat-msg:nth-child(1) { animation-delay: 0.3s; }
+  .chat-msg:nth-child(2) { animation-delay: 1.2s; }
+  .chat-msg:nth-child(3) { animation-delay: 2.2s; }
+  .chat-msg:nth-child(4) { animation-delay: 3.5s; }
+  .float-tag {
+    position: absolute;
+    background: var(--navy-light); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 0.5rem 0.9rem;
+    font-size: 0.78rem; display: flex; align-items: center; gap: 6px;
+    animation: floatTag 5s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .ft1 { top: 5%; left: -10%; animation-delay: 0s; }
+  .ft2 { bottom: 15%; right: -8%; animation-delay: 2s; }
+  .ft3 { bottom: 5%; left: 0%; animation-delay: 1s; }
+  @keyframes floatTag { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .tag-icon { font-size: 1.1rem; }
+  .what-text h2 { margin-bottom: 1.2rem; }
+  .what-points { list-style: none; margin-top: 2rem; }
+  .what-points li { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 1.2rem; }
+  .check-icon { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; background: rgba(0,201,177,0.15); border: 1px solid rgba(0,201,177,0.3); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 0.75rem; margin-top: 2px; }
+  .point-title { font-weight: 600; margin-bottom: 2px; }
+  .point-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ─── HOW IT WORKS ─── */
+  #how { background: var(--navy); }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; position: relative; }
+  .steps-grid::before { content: ''; position: absolute; top: 48px; left: 17%; right: 17%; height: 1px; background: linear-gradient(90deg, var(--teal), rgba(255,107,53,0.5)); opacity: 0.3; }
+  .step-card { background: linear-gradient(145deg, var(--navy-light), var(--navy-mid)); border: 1px solid rgba(255,255,255,0.07); border-radius: 24px; padding: 2rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
+  .step-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,201,177,0.05) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; }
+  .step-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+  .step-card:hover::before { opacity: 1; }
+  .step-num { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 0 auto 1.2rem; background: linear-gradient(135deg, rgba(0,201,177,0.2), rgba(0,201,177,0.05)); border: 1.5px solid rgba(0,201,177,0.4); color: var(--teal); }
+  .step-card:nth-child(2) .step-num { background: linear-gradient(135deg, rgba(255,107,53,0.2), rgba(255,107,53,0.05)); border-color: rgba(255,107,53,0.4); color: var(--orange); }
+  .step-card:nth-child(3) .step-num { background: linear-gradient(135deg, rgba(58,134,255,0.2), rgba(58,134,255,0.05)); border-color: rgba(58,134,255,0.4); color: #7BB8FF; }
+  .step-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .step-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+  .step-icon { font-size: 2rem; margin-bottom: 0.7rem; }
+
+  /* ─── EXPLAINER ─── */
+  #explainer { background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%); overflow: hidden; }
+  .explainer-visual { position: relative; height: 340px; background: linear-gradient(145deg, var(--navy-light), var(--navy-mid)); border: 1px solid rgba(255,255,255,0.07); border-radius: 28px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-top: 3rem; }
+  .explainer-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(0,201,177,0.08) 0%, transparent 70%), radial-gradient(ellipse at 70% 50%, rgba(255,107,53,0.08) 0%, transparent 70%); }
+  .exp-center { position: relative; z-index: 2; text-align: center; }
+  .exp-wave-visual { display: flex; align-items: center; justify-content: center; gap: 4px; height: 80px; margin-bottom: 1.5rem; }
+  .wave-bar { width: 6px; border-radius: 3px; animation: waveBar 1.4s ease-in-out infinite; }
+  .wave-bar.teal { background: var(--teal); }
+  .wave-bar.orange { background: var(--orange); }
+  .wave-bar:nth-child(1) { animation-delay: 0s; } .wave-bar:nth-child(2) { animation-delay: 0.1s; } .wave-bar:nth-child(3) { animation-delay: 0.2s; } .wave-bar:nth-child(4) { animation-delay: 0.3s; } .wave-bar:nth-child(5) { animation-delay: 0.4s; } .wave-bar:nth-child(6) { animation-delay: 0.3s; } .wave-bar:nth-child(7) { animation-delay: 0.2s; } .wave-bar:nth-child(8) { animation-delay: 0.1s; } .wave-bar:nth-child(9) { animation-delay: 0s; }
+  @keyframes waveBar { 0%, 100% { height: 12px; } 50% { height: 60px; } }
+  .exp-label { font-size: 1rem; color: var(--text-muted); }
+  .exp-label strong { color: var(--white); }
+  .orbit-ring { position: absolute; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.08); }
+  .orbit1 { width: 280px; height: 280px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .orbit2 { width: 420px; height: 420px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .orbit-icon { position: absolute; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; background: var(--navy-light); border: 1px solid rgba(255,255,255,0.1); }
+  @keyframes orbitSpin1 { from { transform: translateX(-50%) rotate(0deg) translateX(140px) rotate(0deg); } to { transform: translateX(-50%) rotate(360deg) translateX(140px) rotate(-360deg); } }
+  @keyframes orbitSpin2 { from { transform: translateY(-50%) rotate(0deg) translateY(210px) rotate(0deg); } to { transform: translateY(-50%) rotate(360deg) translateY(210px) rotate(-360deg); } }
+  .oi1 { top: -22px; left: 50%; animation: orbitSpin1 12s linear infinite; }
+  .oi2 { bottom: -22px; left: 50%; animation: orbitSpin1 12s linear infinite reverse; }
+  .oi3 { left: -22px; top: 50%; animation: orbitSpin2 10s linear infinite; }
+  .oi4 { right: -22px; top: 50%; animation: orbitSpin2 10s linear infinite reverse; }
+
+  /* ─── PRICING ─── */
+  #pricing { background: var(--navy); }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 760px; margin: 0 auto; }
+  .price-card { background: linear-gradient(145deg, var(--navy-light), var(--navy-mid)); border: 1px solid rgba(255,255,255,0.09); border-radius: 28px; padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+  .price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--teal), transparent); }
+  .price-card.featured::before { background: linear-gradient(90deg, var(--orange), var(--teal)); height: 3px; }
+  .price-card:hover { transform: translateY(-6px); box-shadow: 0 40px 80px rgba(0,0,0,0.4); }
+  .price-card.featured { border-color: rgba(0,201,177,0.25); }
+  .popular-badge { position: absolute; top: 1rem; right: 1rem; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: var(--navy); font-size: 0.72rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 50px; }
+  .price-duration { display: inline-flex; align-items: center; gap: 6px; color: var(--teal); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .price-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
+  .price-amount { display: flex; align-items: baseline; gap: 4px; margin-bottom: 0.5rem; }
+  .price-dollar { font-size: 1.5rem; font-weight: 600; color: var(--text-muted); }
+  .price-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1; }
+  .price-card:first-child .price-num { color: var(--teal); }
+  .price-card.featured .price-num { color: var(--orange); }
+  .price-per { color: var(--text-muted); font-size: 0.85rem; }
+  .price-features { list-style: none; margin: 1.5rem 0 2rem; }
+  .price-features li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+  .pf-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; background: rgba(0,201,177,0.15); border: 1px solid rgba(0,201,177,0.3); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 0.6rem; }
+  .price-card.featured .pf-dot { background: rgba(255,107,53,0.15); border-color: rgba(255,107,53,0.3); color: var(--orange); }
+  .book-btn { width: 100%; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: var(--navy); border: none; padding: 0.85rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; }
+  .book-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0,201,177,0.35); }
+  .price-card.featured .book-btn { background: linear-gradient(135deg, var(--orange), #E55B28); }
+  .price-card.featured .book-btn:hover { box-shadow: 0 20px 40px rgba(255,107,53,0.35); }
+
+  /* ─── PAYMENT MODAL ─── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+    align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 28px; padding: 2.5rem;
+    max-width: 520px; width: 100%;
+    position: relative; max-height: 92vh; overflow-y: auto;
+    animation: modalIn 0.3s ease;
+  }
+  @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  .modal-close { position: absolute; top: 1.2rem; right: 1.5rem; background: rgba(255,255,255,0.08); border: none; color: var(--white); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+  .modal-close:hover { background: rgba(255,255,255,0.15); }
+
+  /* Step bar */
+  .modal-steps { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+  .m-step { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.1); transition: background 0.3s; }
+  .m-step.active { background: var(--teal); }
+
+  .modal-step-content { display: none; }
+  .modal-step-content.visible { display: block; }
+
+  .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .modal-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6; }
+
+  /* Amount box */
+  .payment-box { background: rgba(0,201,177,0.08); border: 1px solid rgba(0,201,177,0.2); border-radius: 16px; padding: 1.2rem; margin-bottom: 1.5rem; }
+  .payment-amount { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--teal); margin-bottom: 0.3rem; }
+  .payment-label { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* UPI QR box */
+  .upi-qr-wrap {
+    display: flex; flex-direction: column; align-items: center;
+    background: white; border-radius: 16px; padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .upi-qr-placeholder {
+    width: 160px; height: 160px;
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: 0.75rem; color: #777; text-align: center; gap: 6px;
+    margin-bottom: 0.6rem;
+  }
+  .upi-id-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,201,177,0.12); border: 1px solid rgba(0,201,177,0.3);
+    border-radius: 50px; padding: 0.4rem 1rem;
+    font-size: 0.9rem; font-weight: 600; color: var(--teal);
+    cursor: pointer; transition: background 0.2s; user-select: all;
+    margin-top: 0.4rem;
+  }
+  .upi-id-chip:hover { background: rgba(0,201,177,0.2); }
+  .copy-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+  /* Pay method tabs */
+  .pay-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.2rem; }
+  .pay-tab {
+    flex: 1; padding: 0.6rem 0.5rem;
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 10px; background: transparent;
+    color: var(--text-muted); font-size: 0.82rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+  }
+  .pay-tab .tab-icon { font-size: 1.2rem; }
+  .pay-tab.active { border-color: var(--teal); color: var(--teal); background: rgba(0,201,177,0.1); }
+  .pay-tab:hover:not(.active) { border-color: rgba(255,255,255,0.3); color: var(--white); }
+
+  .pay-panel { display: none; }
+  .pay-panel.visible { display: block; }
+
+  /* UPI apps row */
+  .upi-apps { display: flex; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .upi-app-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--navy-light); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 0.5rem 0.9rem;
+    font-size: 0.82rem; font-weight: 600; color: var(--white);
+    cursor: pointer; transition: border-color 0.2s;
+  }
+  .upi-app-btn:hover { border-color: rgba(0,201,177,0.4); }
+
+  /* Card form */
+  .card-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .card-form-grid .full { grid-column: 1 / -1; }
+
+  .form-group { margin-bottom: 1rem; }
+  .form-label { display: block; font-size: 0.82rem; font-weight: 500; margin-bottom: 0.4rem; color: rgba(255,255,255,0.8); }
+  .form-input { width: 100%; background: var(--navy-light); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: var(--white); padding: 0.75rem 1rem; font-size: 0.9rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; }
+  .form-input:focus { border-color: rgba(0,201,177,0.5); }
+  .form-input::placeholder { color: rgba(255,255,255,0.3); }
+  textarea.form-input { resize: none; }
+
+  /* Secure badge */
+  .secure-badge { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem; }
+  .secure-badge span { color: #4CAF50; }
+
+  .modal-btn { width: 100%; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: var(--navy); border: none; padding: 0.9rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; margin-top: 0.5rem; font-family: 'DM Sans', sans-serif; }
+  .modal-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(0,201,177,0.3); }
+  .modal-btn.orange-btn { background: linear-gradient(135deg, var(--orange), #E55B28); }
+  .modal-btn.orange-btn:hover { box-shadow: 0 15px 35px rgba(255,107,53,0.3); }
+  .modal-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .gcal-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--navy-light); border: 1.5px solid rgba(0,201,177,0.35); color: var(--teal); padding: 0.9rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; text-decoration: none; margin-top: 0.8rem; font-family: 'DM Sans', sans-serif; }
+  .gcal-btn:hover { background: rgba(0,201,177,0.1); }
+
+  /* Success */
+  .success-icon { width: 70px; height: 70px; border-radius: 50%; background: rgba(0,201,177,0.15); border: 2px solid rgba(0,201,177,0.4); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem; animation: successPop 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+  @keyframes successPop { 0% { transform: scale(0.5); opacity: 0; } 70% { transform: scale(1.1); } 100% { transform: scale(1); opacity: 1; } }
+  .success-note { background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.25); border-radius: 12px; padding: 1rem; font-size: 0.85rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin: 1rem 0; }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--navy-mid); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 1rem; }
+  .testi-card { background: linear-gradient(145deg, var(--navy-light), var(--navy-mid)); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 1.5rem; transition: transform 0.3s; }
+  .testi-card:hover { transform: translateY(-4px); }
+  .testi-stars { color: #FFD700; font-size: 0.85rem; margin-bottom: 0.8rem; letter-spacing: 2px; }
+  .testi-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--navy); }
+  .testi-name { font-size: 0.85rem; font-weight: 600; }
+  .testi-loc { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ─── FAQ ─── */
+  #faq { background: var(--navy); }
+  .faq-list { max-width: 720px; }
+  .faq-item { border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; margin-bottom: 0.75rem; overflow: hidden; transition: border-color 0.3s; }
+  .faq-item:hover { border-color: rgba(0,201,177,0.2); }
+  .faq-q { width: 100%; background: none; border: none; color: var(--white); text-align: left; padding: 1.2rem 1.5rem; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'DM Sans', sans-serif; }
+  .faq-icon { width: 26px; height: 26px; border-radius: 50%; background: rgba(0,201,177,0.12); border: 1px solid rgba(0,201,177,0.25); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 0.9rem; flex-shrink: 0; transition: transform 0.3s; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { display: none; padding: 0 1.5rem 1.2rem; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem 2rem; text-align: center; }
+  .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 0.5rem; }
+  .footer-logo span { font-family: 'Playfair Display', serif; font-size: 1.3rem; }
+  .footer-tagline { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--teal); }
+  .footer-copy { color: rgba(255,255,255,0.25); font-size: 0.78rem; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* India badge */
+  .india-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,153,51,0.12); border: 1px solid rgba(255,153,51,0.3); border-radius: 50px; padding: 0.25rem 0.8rem; font-size: 0.78rem; color: #ff9933; font-weight: 600; margin-left: 8px; vertical-align: middle; }
+
+  /* Toast */
+  .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--teal); color: var(--navy); padding: 0.7rem 1.4rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; opacity: 0; transition: all 0.3s; z-index: 9999; pointer-events: none; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0.8rem 1rem; }
+    .nav-links { display: none; }
+    .what-grid, .steps-grid, .pricing-grid, .testi-grid { grid-template-columns: 1fr; }
+    .steps-grid::before { display: none; }
+    .what-visual { height: 300px; }
+    .hero-stats { gap: 1.5rem; }
+    .bubbles-wrapper .b1, .b3, .b5 { display: none; }
+    .card-form-grid { grid-template-columns: 1fr; }
+    .card-form-grid .full { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Toast -->
+<div class="toast" id="toast">✓ UPI ID copied!</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <svg width="38" height="38" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="waveG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#00BCD4"/><stop offset="100%" style="stop-color:#0288D1"/></linearGradient>
+        <linearGradient id="orangeG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FF9800"/><stop offset="100%" style="stop-color:#FF5722"/></linearGradient>
+      </defs>
+      <path d="M20 120 Q60 80 100 110 Q140 140 180 100" stroke="url(#waveG)" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <path d="M20 135 Q60 95 100 125 Q140 155 180 115" stroke="url(#orangeG)" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <ellipse cx="85" cy="72" rx="28" ry="22" fill="#00BCD4" opacity="0.9"/>
+      <ellipse cx="118" cy="75" rx="22" ry="18" fill="#FF7043" opacity="0.9"/>
+      <circle cx="79" cy="72" r="2.5" fill="white"/><circle cx="87" cy="72" r="2.5" fill="white"/><circle cx="95" cy="72" r="2.5" fill="white"/>
+      <circle cx="114" cy="75" r="2.5" fill="white"/><circle cx="122" cy="75" r="2.5" fill="white"/>
+    </svg>
+    <span>Wavelength <span class="india-badge">🇮🇳 India</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#what">About</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#pricing" class="nav-cta">Book a Chat →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="bubbles-wrapper">
+    <div class="bubble bubble-teal b1">💬 No judgment here</div>
+    <div class="bubble bubble-orange b2">🌊 Just a friendly chat</div>
+    <div class="bubble bubble-teal b3">✨ Feel heard</div>
+    <div class="bubble bubble-orange b4">😊 You're not alone</div>
+    <div class="bubble bubble-teal b5">🌿 Relax &amp; share freely</div>
+  </div>
+  <div class="wave-container">
+    <div class="wave wave1"></div>
+    <div class="wave wave2"></div>
+    <div class="wave wave3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="pulse-dot"></div>
+      Slots Available This Week · India Only
+    </div>
+    <h1>You Deserve a <em>Real</em> Conversation<br>With a <span class="orange-word">Real</span> Human</h1>
+    <p class="hero-sub">Feeling lonely, overwhelmed, or just need someone who truly listens? Book a relaxed, judgment-free chat — no therapy, no pressure. Just a warm, genuine conversation that leaves you feeling lighter.</p>
+    <div class="hero-buttons">
+      <a href="#pricing" class="btn-primary">✦ Book Your Session Now</a>
+      <a href="#what" class="btn-secondary">How It Works ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Judgment Free</div></div>
+      <div class="stat-item"><div class="stat-num">30–60</div><div class="stat-label">Minutes of Real Talk</div></div>
+      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Topics Welcome</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS THIS -->
+<section id="what">
+  <div class="container">
+    <div class="what-grid">
+      <div class="what-visual reveal">
+        <div class="phone-mockup">
+          <div class="phone-header">
+            <div class="avatar">W</div>
+            <div>
+              <div class="phone-name">Wavelength Chat</div>
+              <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);">Your listener is here</div>
+            </div>
+            <div class="online-dot"></div>
+          </div>
+          <div class="chat-msg msg-them"><div class="mini-avatar"></div><div class="msg-bubble them-bubble">Hey! I've just been feeling really out of it lately…</div></div>
+          <div class="chat-msg msg-me"><div class="msg-bubble me-bubble">I'm all ears. Take your time — there's no rush here 🌊</div></div>
+          <div class="chat-msg msg-them"><div class="mini-avatar"></div><div class="msg-bubble them-bubble">Wow, I already feel better just saying that out loud.</div></div>
+          <div class="chat-msg msg-me"><div class="msg-bubble me-bubble">That's what this space is for. You deserve to be heard ✨</div></div>
+        </div>
+        <div class="float-tag ft1"><span class="tag-icon">🔒</span><span>Private &amp; Safe</span></div>
+        <div class="float-tag ft2"><span class="tag-icon">💙</span><span>No Judgment</span></div>
+        <div class="float-tag ft3"><span class="tag-icon">🇮🇳</span><span>India Only</span></div>
+      </div>
+      <div class="what-text">
+        <span class="section-tag">What Is This?</span>
+        <h2>A Space Where You Can <em>Breathe</em> &amp; Be You</h2>
+        <p class="section-sub">This isn't therapy. This isn't coaching. It's something rarer — a genuine, unhurried conversation with a human who actually cares about how you're doing.</p>
+        <ul class="what-points">
+          <li><div class="check-icon">✓</div><div><div class="point-title">Talk About Anything</div><div class="point-desc">Life, stress, dreams, relationships, that thing you can't tell anyone else. Nothing is too small or too big.</div></div></li>
+          <li><div class="check-icon">✓</div><div><div class="point-title">Zero Pressure, Full Presence</div><div class="point-desc">No advice you didn't ask for. No judgment. Just someone who's fully present and actually listening.</div></div></li>
+          <li><div class="check-icon">✓</div><div><div class="point-title">Leave Feeling Lighter</div><div class="point-desc">Being heard is healing. By the end of your session, you'll feel understood, relaxed, and a little happier.</div></div></li>
+          <li><div class="check-icon">✓</div><div><div class="point-title">Pay Instantly via UPI / GPay</div><div class="point-desc">Seamless Indian payment — UPI, Google Pay, PhonePe, Paytm, or your debit/credit card. ₹ INR only.</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATED EXPLAINER -->
+<section id="explainer">
+  <div class="container" style="text-align:center">
+    <span class="section-tag orange">The Wavelength Effect</span>
+    <h2 style="max-width:600px;margin:0 auto 0.5rem;">When Two People <em>Truly Connect</em>, Something Shifts</h2>
+    <p class="section-sub" style="margin:0 auto 0;">That shift — that sense of relief, warmth, and being seen — is what we create, every session.</p>
+    <div class="explainer-visual reveal">
+      <div class="orbit-ring orbit1"><div class="orbit-icon oi1">💬</div><div class="orbit-icon oi2">🌊</div></div>
+      <div class="orbit-ring orbit2"><div class="orbit-icon oi3">😌</div><div class="orbit-icon oi4">✨</div></div>
+      <div class="exp-center">
+        <div class="exp-wave-visual">
+          <div class="wave-bar teal"></div><div class="wave-bar teal"></div><div class="wave-bar teal"></div>
+          <div class="wave-bar teal"></div><div class="wave-bar teal"></div>
+          <div class="wave-bar orange"></div><div class="wave-bar orange"></div><div class="wave-bar orange"></div><div class="wave-bar orange"></div>
+        </div>
+        <div class="exp-label"><strong>You speak. I listen. The wave builds.</strong><br>Your words create the wavelength. I match it, hold it, reflect it back.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <span class="section-tag">How It Works</span>
+    <h2>Simple. Seamless. <em>Meaningful.</em></h2>
+    <p class="section-sub">Three easy steps stand between you and a conversation that could genuinely change your day.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <div class="step-icon">📲</div>
+        <div class="step-title">Pay via UPI / GPay / Card</div>
+        <div class="step-desc">Choose your session, then pay instantly in ₹ INR via UPI, Google Pay, PhonePe, Paytm, or your debit/credit card.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <div class="step-icon">📅</div>
+        <div class="step-title">Book Your Time Slot</div>
+        <div class="step-desc">After payment, pick your preferred time from my Google Calendar. Choose what suits your schedule.</div>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <div class="step-icon">🌊</div>
+        <div class="step-title">Get Confirmed &amp; Talk</div>
+        <div class="step-desc">You receive a booking confirmation with the meeting link. We connect — and the real conversation begins.</div>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;background:rgba(0,201,177,0.08);border:1px solid rgba(0,201,177,0.2);border-radius:16px;padding:1.2rem 1.5rem;max-width:600px;display:flex;gap:12px;align-items:flex-start;">
+      <div style="font-size:1.4rem;margin-top:2px;">🔔</div>
+      <div>
+        <div style="font-weight:600;margin-bottom:4px;">Confirmation for Both of Us</div>
+        <div style="font-size:0.88rem;color:var(--text-muted);line-height:1.6;">Once you book, you'll get an email confirmation with your session details and meeting link. I'll receive a notification too — so we're both ready when the moment arrives.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container" style="text-align:center">
+    <span class="section-tag">Investment in Yourself</span>
+    <h2>Simple Pricing, <em>Real Value</em></h2>
+    <p class="section-sub" style="margin:0 auto 3rem;">Pay in ₹ INR — via UPI, Google Pay, PhonePe, Paytm, or card. No international hassle.</p>
+    <div class="pricing-grid">
+      <!-- 30 min -->
+      <div class="price-card reveal">
+        <div class="price-duration">⏱ 30 Minutes</div>
+        <div class="price-title">Clarity Session</div>
+        <div class="price-amount">
+          <span class="price-dollar">₹</span>
+          <span class="price-num">499</span>
+        </div>
+        <div class="price-per">one-time · Indian Rupees</div>
+        <ul class="price-features">
+          <li><div class="pf-dot">✓</div> 30 min voice/video call</li>
+          <li><div class="pf-dot">✓</div> 100% judgment-free</li>
+          <li><div class="pf-dot">✓</div> Pick your topic freely</li>
+          <li><div class="pf-dot">✓</div> UPI / GPay / Card payment</li>
+          <li><div class="pf-dot">✓</div> Google Calendar booking</li>
+        </ul>
+        <button class="book-btn" onclick="openModal('30min', 499)">Book This Session →</button>
+      </div>
+      <!-- 60 min -->
+      <div class="price-card featured reveal reveal-delay-1">
+        <div class="popular-badge">Most Popular</div>
+        <div class="price-duration" style="color:var(--orange);">⏱ 60 Minutes</div>
+        <div class="price-title">Deep Dive Session</div>
+        <div class="price-amount">
+          <span class="price-dollar">₹</span>
+          <span class="price-num">1499</span>
+        </div>
+        <div class="price-per">one-time · Indian Rupees</div>
+        <ul class="price-features">
+          <li><div class="pf-dot">✓</div> Full 1-hour conversation</li>
+          <li><div class="pf-dot">✓</div> Go deep on any topic</li>
+          <li><div class="pf-dot">✓</div> 100% judgment-free</li>
+          <li><div class="pf-dot">✓</div> Priority booking slot</li>
+          <li><div class="pf-dot">✓</div> UPI / GPay / Card payment</li>
+        </ul>
+        <button class="book-btn" onclick="openModal('60min', 1499)">Book This Session →</button>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted);">
+      🔒 100% secure Indian payments · UPI · Google Pay · PhonePe · Paytm · Debit &amp; Credit Cards · No hidden fees.
+    </p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <span class="section-tag">What People Say</span>
+    <h2>They Came In Uncertain. <em>They Left Lighter.</em></h2>
+    <div class="testi-grid" style="margin-top:2rem;">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"I didn't expect much — I just needed to talk. By the end I felt genuinely understood for the first time in months. Incredible."</div>
+        <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#00C9B1,#008fa0);">P</div><div><div class="testi-name">Priya S.</div><div class="testi-loc">Bengaluru, India</div></div></div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"No advice I didn't ask for, no judgment, just someone truly listening. Paid via GPay in seconds. Worth every rupee."</div>
+        <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#FF6B35,#E55B28);">R</div><div><div class="testi-name">Rahul K.</div><div class="testi-loc">Mumbai, India</div></div></div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"I was going through a rough patch and didn't want therapy. This was perfect — warm, light, and I felt so much better after just 30 minutes."</div>
+        <div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#3A86FF,#1A5FBF);">A</div><div><div class="testi-name">Ananya M.</div><div class="testi-loc">Chennai, India</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="section-tag">Questions?</span>
+    <h2>Everything You <em>Wondered</em></h2>
+    <div class="faq-list" style="margin-top:2rem;">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is this therapy or counseling?<div class="faq-icon">+</div></button>
+        <div class="faq-a">Absolutely not. This is a friendly, casual human conversation. I'm not a therapist or counselor. Think of it as a warm, supportive chat with someone who's fully present and genuinely cares about how you're feeling. If you need professional mental health support, I'd always encourage you to seek that too.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What can we talk about?<div class="faq-icon">+</div></button>
+        <div class="faq-a">Literally anything — work stress, relationships, loneliness, a big decision, something funny that happened, a dream you're chasing, or just how your week went. There are no rules and no wrong topics. This is your time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How does payment work?<div class="faq-icon">+</div></button>
+        <div class="faq-a">Pay instantly in ₹ INR via UPI, Google Pay, PhonePe, or Paytm by scanning the QR code or using the UPI ID. You can also pay by debit or credit card. Once payment is done, note your UPI/transaction reference, fill in your details, and book your slot on Google Calendar. I'll verify and send your confirmation email with the meeting link.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is this only for people in India?<div class="faq-icon">+</div></button>
+        <div class="faq-a">Yes — currently I accept payments in Indian Rupees (₹ INR) via UPI, Google Pay, and Indian debit/credit cards. This service is available for users in India only at this time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is this confidential?<div class="faq-icon">+</div></button>
+        <div class="faq-a">Completely. What you share in our conversation stays between us. I take your privacy very seriously. You can speak freely, openly, and without any worry.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What if I need to reschedule?<div class="faq-icon">+</div></button>
+        <div class="faq-a">Life happens! Just send me an email at least 6 hours before your session and we'll reschedule to a time that works. I'm flexible and understanding.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section style="padding:4rem 2rem;background:linear-gradient(135deg,rgba(0,201,177,0.12),rgba(255,107,53,0.08));border-top:1px solid rgba(0,201,177,0.1);border-bottom:1px solid rgba(0,201,177,0.1);text-align:center;">
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem;">The Conversation That Changes<br>Your Day Is <em>One Click Away</em></h2>
+  <p style="color:var(--text-muted);margin-bottom:2rem;font-size:1.05rem;">No commitment. No judgment. Pay in ₹ INR — done in seconds.</p>
+  <a href="#pricing" class="btn-primary" style="font-size:1.05rem;padding:1rem 2.5rem;">✦ Book Your Session — Start Feeling Better</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg width="30" height="30" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 120 Q60 80 100 110 Q140 140 180 100" stroke="#00C9B1" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <ellipse cx="85" cy="72" rx="28" ry="22" fill="#00C9B1" opacity="0.9"/>
+      <ellipse cx="118" cy="75" rx="22" ry="18" fill="#FF7043" opacity="0.9"/>
+    </svg>
+    <span>Wavelength</span>
+  </div>
+  <div class="footer-tagline">Feeling lonely or just need someone to talk to? I'm here. 🇮🇳 India Only</div>
+  <div class="footer-links">
+    <a href="#what">About</a>
+    <a href="#how">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:your@email.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Wavelength. All rights reserved. | Not a therapy or counseling service. | Payments in ₹ INR only.</div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     BOOKING MODAL  (3 Steps)
+═══════════════════════════════════════════ -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <!-- Progress bar -->
+    <div class="modal-steps">
+      <div class="m-step active" id="mstep1"></div>
+      <div class="m-step" id="mstep2"></div>
+      <div class="m-step" id="mstep3"></div>
+    </div>
+
+    <!-- ── STEP 1: PAY ── -->
+    <div class="modal-step-content visible" id="step1">
+      <h3>Step 1 — Pay in ₹ INR</h3>
+      <p class="modal-sub">Send payment via UPI, Google Pay, PhonePe, Paytm, or card. Note your transaction reference — you'll need it next.</p>
+
+      <div class="payment-box">
+        <div id="modal-session-label" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:4px;">30-minute Clarity Session</div>
+        <div class="payment-amount" id="modal-price">₹499</div>
+        <div class="payment-label">One-time payment · ₹ Indian Rupees</div>
+      </div>
+
+      <!-- Tab switcher -->
+      <div class="pay-tabs">
+        <button class="pay-tab active" onclick="switchTab('upi', this)"><span class="tab-icon">📲</span>UPI / QR</button>
+        <button class="pay-tab" onclick="switchTab('apps', this)"><span class="tab-icon">📱</span>GPay / PhonePe</button>
+        <button class="pay-tab" onclick="switchTab('card', this)"><span class="tab-icon">💳</span>Card</button>
+      </div>
+
+      <!-- UPI / QR Panel -->
+      <div class="pay-panel visible" id="panel-upi">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.2rem;display:flex;align-items:center;gap:1.2rem;margin-bottom:1rem;">
+          <!-- Placeholder QR — replace src with your actual QR image or embed a real one -->
+          <div style="width:110px;height:110px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.65rem;color:#555;text-align:center;padding:6px;">
+            📷<br>Replace with<br>your UPI QR
+          </div>
+          <div>
+            <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:6px;">Scan with any UPI app <strong style="color:var(--white)">or</strong> use UPI ID:</div>
+            <div class="upi-id-chip" onclick="copyUPI()">
+              📋 yourname@upi
+            </div>
+            <div class="copy-hint">Tap to copy UPI ID</div>
+            <div style="font-size:0.78rem;color:var(--text-muted);margin-top:8px;">Works with Google Pay, PhonePe, Paytm, BHIM &amp; all UPI apps</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apps Panel -->
+      <div class="pay-panel" id="panel-apps">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.2rem;margin-bottom:1rem;">
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.8rem;">Open your preferred app and send to UPI ID:</div>
+          <div class="upi-id-chip" onclick="copyUPI()" style="margin-bottom:0.4rem;">📋 yourname@upi</div>
+          <div class="copy-hint" style="margin-bottom:1rem;">Tap to copy</div>
+          <div class="upi-apps">
+            <div class="upi-app-btn">🟢 Google Pay</div>
+            <div class="upi-app-btn">🟣 PhonePe</div>
+            <div class="upi-app-btn">🔵 Paytm</div>
+            <div class="upi-app-btn">🏦 BHIM</div>
+          </div>
+          <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem;">Enter the amount shown above and include your name in the note/remarks field.</div>
+        </div>
+      </div>
+
+      <!-- Card Panel -->
+      <div class="pay-panel" id="panel-card">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:1.2rem;margin-bottom:1rem;">
+          <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.8rem;">Pay by Indian debit or credit card via our secure payment link:</div>
+          <!-- Replace with your Razorpay / PayU / Instamojo link -->
+          <a href="https://rzp.io/YOUR-PAYMENT-LINK" target="_blank" class="modal-btn" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;margin-top:0;">
+            💳 Pay ₹<span id="card-amount">499</span> Securely
+          </a>
+          <div style="font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:0.6rem;">Powered by Razorpay · Visa · Mastercard · RuPay accepted</div>
+        </div>
+      </div>
+
+      <div style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);border-radius:12px;padding:0.9rem;font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:1.2rem;">
+        ⚡ After paying, note your <strong style="color:#FF8C60">UPI reference / transaction ID</strong>. You'll enter it in the next step to confirm your booking.
+      </div>
+
+      <button class="modal-btn" onclick="goStep(2)">I've Paid — Next Step →</button>
+    </div>
+
+    <!-- ── STEP 2: YOUR DETAILS ── -->
+    <div class="modal-step-content" id="step2">
+      <h3>Step 2 — Your Details</h3>
+      <p class="modal-sub">Fill in your info so I can verify your payment and send your calendar confirmation.</p>
+
+      <div class="form-group">
+        <label class="form-label">Your Name *</label>
+        <input class="form-input" type="text" id="fname" placeholder="e.g. Priya Sharma" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Email *</label>
+        <input class="form-input" type="email" id="femail" placeholder="you@email.com" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">UPI / Transaction Reference Number *</label>
+        <input class="form-input" type="text" id="fpayref" placeholder="e.g. 412843059821 or UPI Ref No." />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your City (optional)</label>
+        <input class="form-input" type="text" id="fcity" placeholder="e.g. Mumbai, Delhi, Bengaluru…" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Anything you'd like me to know? (optional)</label>
+        <textarea class="form-input" id="fnote" rows="2" placeholder="How you're feeling, topic you'd like to talk about, etc."></textarea>
+      </div>
+
+      <div class="secure-badge"><span>🔒</span> Your details are private and only used to confirm your booking.</div>
+
+      <button class="modal-btn orange-btn" onclick="submitForm()">Submit &amp; Book My Slot →</button>
+      <div style="text-align:center;margin-top:0.7rem;">
+        <span style="font-size:0.8rem;color:var(--text-muted);cursor:pointer;" onclick="goStep(1)">← Back to Payment</span>
+      </div>
+    </div>
+
+    <!-- ── STEP 3: CONFIRMED — PICK YOUR SLOT ── -->
+    <div class="modal-step-content" id="step3">
+      <div class="success-icon">✓</div>
+      <h3 style="text-align:center;">You're Almost There! 🎉</h3>
+      <p class="modal-sub" style="text-align:center;">Your details have been submitted. I'll verify your payment and you'll receive a confirmation email within a few hours.</p>
+
+      <div class="success-note">
+        📅 <strong style="color:#FF8C60">Last step:</strong> Click below to pick your exact time slot from my live Google Calendar. Choose what works best for your timezone and schedule — our session happens right when you select!
+      </div>
+
+      <!-- ★ Replace the href with your actual Google Calendar appointment link ★ -->
+      <a class="gcal-btn" href="https://calendar.app.google/YOURBOOKINGLINK" target="_blank" id="gcal-link">
+        📅 Pick Your Time on Google Calendar
+      </a>
+
+      <div style="margin-top:1.2rem;padding:1rem;background:rgba(0,201,177,0.08);border-radius:12px;font-size:0.82rem;color:rgba(255,255,255,0.65);line-height:1.6;">
+        🔔 Once your slot is booked and payment verified, <strong style="color:var(--teal)">both of us</strong> receive a confirmation email with the meeting link. If you don't hear from me within 12 hours, email <strong style="color:var(--teal)">your@email.com</strong>
+      </div>
+
+      <button class="modal-btn" style="margin-top:1rem;" onclick="closeModal()">Done — I'll Check My Email ✓</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ─── State ───
+  let currentSession = '';
+  let currentPrice = 0;
+
+  // ─── Modal ───
+  function openModal(session, price) {
+    currentSession = session;
+    currentPrice = price;
+    const label = session === '30min' ? '30-minute Clarity Session' : '60-minute Deep Dive Session';
+    document.getElementById('modal-session-label').textContent = label;
+    document.getElementById('modal-price').textContent = '₹' + price.toLocaleString('en-IN');
+    document.getElementById('card-amount').textContent = price.toLocaleString('en-IN');
+    goStep(1);
+    switchTab('upi', document.querySelector('.pay-tab'));
+    document.getElementById('bookingModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('bookingModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('bookingModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  function goStep(n) {
+    [1,2,3].forEach(i => {
+      document.getElementById('step'+i).classList.remove('visible');
+      document.getElementById('mstep'+i).classList.remove('active');
+    });
+    document.getElementById('step'+n).classList.add('visible');
+    for(let i=1; i<=n; i++) document.getElementById('mstep'+i).classList.add('active');
+  }
+
+  // ─── Pay tabs ───
+  function switchTab(tab, btn) {
+    ['upi','apps','card'].forEach(p => document.getElementById('panel-'+p).classList.remove('visible'));
+    document.getElementById('panel-'+tab).classList.add('visible');
+    document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+  }
+
+  // ─── Copy UPI ───
+  function copyUPI() {
+    const upiId = 'yourname@upi'; // ★ Replace with your actual UPI ID
+    navigator.clipboard.writeText(upiId).catch(() => {});
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  // ─── Submit form ───
+  function submitForm() {
+    const name  = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const ref   = document.getElementById('fpayref').value.trim();
+    if (!name || !email || !ref) {
+      alert('Please fill in your name, email, and UPI/transaction reference to continue.');
+      return;
+    }
+
+    const session  = currentSession === '30min' ? '30-Min Clarity Session (₹499)' : '60-Min Deep Dive (₹1499)';
+    const city     = document.getElementById('fcity').value.trim() || 'Not specified';
+    const note     = document.getElementById('fnote').value.trim() || 'None';
+    const subject  = encodeURIComponent('New Wavelength Booking — ' + name);
+    const body     = encodeURIComponent(
+      'NEW BOOKING RECEIVED\n\n' +
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Session: ' + session + '\n' +
+      'UPI/Txn Ref: ' + ref + '\n' +
+      'City: ' + city + '\n' +
+      'Note: ' + note + '\n\n' +
+      'Please verify UPI payment and send Google Calendar confirmation.'
+    );
+
+    // Open mailto so you get notified
+    window.location.href = 'mailto:your@email.com?subject=' + subject + '&body=' + body;
+
+    goStep(3);
+  }
+
+  // ─── FAQ ───
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // ─── Scroll Reveal ───
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // ─── Navbar shadow on scroll ───
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.background =
+      window.scrollY > 50 ? 'rgba(13,27,62,0.98)' : 'rgba(13,27,62,0.85)';
+  });
+</script>
+</body>
+</html>
